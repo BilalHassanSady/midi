@@ -1,0 +1,382 @@
+#include <MIDIUSB.h>
+#include <Keypad.h>
+
+char keys[4][8]={
+  {'1','2','3','4','5','6','7','8'},
+  {'9','A','B','C','D','E','F','G'},
+  {'H','I','J','K','L','M','N','O'},
+  {'P','Q','a','b','c','d','e','f'}
+};
+ byte ROWS[]={2,3,4,5};
+ byte COLS[]={6,7,8,9,10,11,12,13};
+Keypad key(makeKeymap(keys),ROWS,COLS,4,8);
+void noteOn(byte channel, byte pitch, byte velocity) {
+  midiEventPacket_t noteOn = {0x09, 0x90 | channel, pitch, velocity};
+  MidiUSB.sendMIDI(noteOn);
+}
+
+void noteOff(byte channel, byte pitch, byte velocity) {
+  midiEventPacket_t noteOff = {0x08, 0x80 | channel, pitch, velocity};
+  MidiUSB.sendMIDI(noteOff);
+}
+
+void setup() {
+Serial.begin(115200);
+}
+void loop(){
+char x = key.getKey();
+if(x=='1'){
+Serial.println("Sending 1 note on");
+  noteOn(0, 84, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending 1 note off");
+  noteOff(0, 84, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}
+if(x=='2'){
+Serial.println("Sending 2 note on");
+  noteOn(0, 83, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending 2 note off");
+  noteOff(0, 83, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='4'){
+Serial.println("Sending 4 note on");
+  noteOn(0, 81, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending 4 note off");
+  noteOff(0, 81, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='7'){
+Serial.println("Sending 7 note on");
+  noteOn(0, 78, 127);   
+  MidiUSB.flush();
+   delay(50);}
+else{
+   Serial.println("Sending 7 note off");
+  noteOff(0, 78, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='5'){
+Serial.println("Sending 5 note on");
+  noteOn(0, 80, 127);   
+  MidiUSB.flush();
+   delay(50);}
+else{
+   Serial.println("Sending 5 note off");
+  noteOff(0, 80, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='9'){
+Serial.println("Sending 9 note on");
+  noteOn(0, 76, 127);   
+  MidiUSB.flush();
+   delay(50);}
+else{
+   Serial.println("Sending 9 note off");
+  noteOff(0, 76, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='B'){
+Serial.println("Sending B note on");
+  noteOn(0, 74, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending B note off");
+  noteOff(0, 74, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='G'){
+Serial.println("Sending G note on");
+  noteOn(0, 69, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending G note off");
+  noteOff(0, 69, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='F'){
+Serial.println("Sending F note on");
+  noteOn(0, 70, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending F note off");
+  noteOff(0, 70, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='D'){
+Serial.println("Sending D note on");
+  noteOn(0, 72, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending D note off");
+  noteOff(0, 72, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='I'){
+Serial.println("Sending I note on");
+  noteOn(0, 59, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending I note off");
+  noteOff(0, 59, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='K'){
+Serial.println("Sending K note on");
+  noteOn(0, 57, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending K note off");
+  noteOff(0, 57, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='O'){
+Serial.println("Sending O note on");
+  noteOn(0, 53, 127);   
+  MidiUSB.flush();
+  delay(50);
+}
+else{
+   Serial.println("Sending O note off");
+  noteOff(0, 53, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='M'){
+Serial.println("Sending M note on");
+  noteOn(0, 55, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending M note off");
+  noteOff(0, 55, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='P'){
+Serial.println("Sending P note on");
+  noteOn(0, 68, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending P note off");
+  noteOff(0, 68, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='Q'){
+Serial.println("Sending Q note on");
+  noteOn(0, 67, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending Q note off");
+  noteOff(0, 67, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='b'){
+Serial.println("Sending b note on");
+  noteOn(0, 65, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending b note off");
+  noteOff(0, 65, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='e'){
+Serial.println("Sending e note on");
+  noteOn(0, 62, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending e note off");
+  noteOff(0, 62, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='c'){
+Serial.println("Sending c note on");
+  noteOn(0, 64, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending c note off");
+  noteOff(0, 64, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}
+
+if(x=='3'){
+Serial.println("Sending 3 note on");
+  noteOn(0, 82, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending 3 note off");
+  noteOff(0, 82, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='8'){
+Serial.println("Sending 8 note on");
+  noteOn(0, 77, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending 8 note off");
+  noteOff(0, 77, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='6'){
+Serial.println("Sending 6 note on");
+  noteOn(0, 79, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending 6 note off");
+  noteOff(0, 79, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='A'){
+Serial.println("Sending A note on");
+  noteOn(0, 75, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending A note off");
+  noteOff(0, 75, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='C'){
+Serial.println("Sending C note on");
+  noteOn(0, 73, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending C note off");
+  noteOff(0, 73, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='E'){
+Serial.println("Sending E note on");
+  noteOn(0, 71, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending E note off");
+  noteOff(0, 71, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='H'){
+Serial.println("Sending H note on");
+  noteOn(0, 60, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending H note off");
+  noteOff(0, 60, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='J'){
+Serial.println("Sending J note on");
+  noteOn(0, 58, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending J note off");
+  noteOff(0, 58, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='N'){
+Serial.println("Sending N note on");
+  noteOn(0, 54, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending N note off");
+  noteOff(0, 54, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='L'){
+Serial.println("Sending L note on");
+  noteOn(0, 56, 127);   
+  MidiUSB.flush();
+   delay(50);
+ }
+else{
+   Serial.println("Sending L note off");
+  noteOff(0, 56, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='a'){
+Serial.println("Sending a note on");
+  noteOn(0, 66, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending a note off");
+  noteOff(0, 66, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='f'){
+Serial.println("Sending f note on");
+  noteOn(0, 61, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending f note off");
+  noteOff(0, 61, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}if(x=='d'){
+Serial.println("Sending d note on");
+  noteOn(0, 63, 127);   
+  MidiUSB.flush();
+   delay(50);
+}
+else{
+   Serial.println("Sending d note off");
+  noteOff(0, 63, 127);  
+  MidiUSB.flush();
+   delay(50); 
+}
+ MidiUSB.flush();
+}
